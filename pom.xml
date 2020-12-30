@@ -7,4 +7,64 @@
 	<version>0.0.1-SNAPSHOT</version>
 	<packaging>pom</packaging>
 	<description>A graphical-user-interaction (GUI) component library for the use in virtual reality (VR).</description>
+	<properties>
+		<maven.compiler.source>1.8</maven.compiler.source>
+		<maven.compiler.target>1.8</maven.compiler.target>
+		<release>false</release>
+	</properties>
+
+	<dependencies>
+		<dependency>
+			<groupId>de.e-nexus</groupId>
+			<artifactId>vr.server</artifactId>
+			<version>1.0.0</version>
+		</dependency>
+		<dependency>
+			<groupId>org.osgi</groupId>
+			<artifactId>osgi.core</artifactId>
+			<version>7.0.0</version>
+			<scope>provided</scope>
+		</dependency>
+		<dependency>
+			<groupId>org.apache.felix</groupId>
+			<artifactId>org.apache.felix.main</artifactId>
+			<version>6.0.3</version>
+			<scope>provided</scope>
+		</dependency>
+	</dependencies>
+	<build>
+		<defaultGoal>clean compile package org.apache.felix:maven-bundle-plugin:4.2.1:bundle resources:copy-resources install:install</defaultGoal>
+		<plugins>
+			<plugin>
+				<groupId>org.apache.felix</groupId>
+				<artifactId>maven-bundle-plugin</artifactId>
+				<configuration>
+					<instructions>
+						<_cdiannotations>*;discover=annotated</_cdiannotations>
+					</instructions>
+				</configuration>
+			</plugin>
+			<plugin>
+				<groupId>org.apache.maven.plugins</groupId>
+				<artifactId>maven-resources-plugin</artifactId>
+				<version>3.1.0</version>
+				<configuration>
+					<outputDirectory>C:/Program Files/apache-karaf-4.3.0/deploy</outputDirectory>
+					<skip>${release}</skip>
+					<resources>
+						<resource>
+							<directory>target</directory>
+							<includes>
+								<include>*.jar</include>
+							</includes>
+						</resource>
+					</resources>
+				</configuration>
+			</plugin>
+		</plugins>
+	</build>
+	<modules>
+		<module>component</module>
+		<module>frame</module>
+	</modules>
 </project>
