@@ -13,7 +13,7 @@ public class MeshAppearance {
 		this.server = Objects.requireNonNull(server, "Server must not be null!");
 	}
 
-	protected void setMesh(Mesh<?> mesh) throws NullPointerException {
+	public void setMesh(Mesh<?> mesh) throws NullPointerException {
 		server.removeMesh(this.mesh);
 		this.mesh = Objects.requireNonNull(mesh, "Mesh must not be null");
 		server.addMesh(mesh);
