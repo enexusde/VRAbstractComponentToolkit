@@ -10,27 +10,27 @@ public final class VRSize implements Serializable {
 
 	private static final long serialVersionUID = 1047756548089311708L;
 
-	private static final Map<Long, Set<VRSize>> VALUES = new LinkedHashMap<Long, Set<VRSize>>();
+	private static final Map<Float, Set<VRSize>> VALUES = new LinkedHashMap<>();
 
-	private final int width;
-	private final int height;
-	private final int deep;
+	private final float width;
+	private final float height;
+	private final float deep;
 
-	private VRSize(int widthCM, int heightCM, int deepCM) {
+	private VRSize(float widthCM, float heightCM, float deepCM) {
 		this.width = widthCM;
 		this.height = heightCM;
 		this.deep = deepCM;
 	}
 
-	public int getWidth() {
+	public float getWidth() {
 		return width;
 	}
 
-	public int getHeight() {
+	public float getHeight() {
 		return height;
 	}
 
-	public int getDeep() {
+	public float getDeep() {
 		return deep;
 	}
 
@@ -38,8 +38,8 @@ public final class VRSize implements Serializable {
 		return resolve(width, height, deep);
 	}
 
-	public static VRSize resolve(int widthCM, int heightCM, int deepCM) {
-		long v = widthCM + heightCM + deepCM;
+	public static VRSize resolve(float widthCM, float heightCM, float deepCM) {
+		float v = widthCM + heightCM + deepCM;
 		synchronized (VALUES) {
 			if (!VALUES.containsKey(v)) {
 				LinkedHashSet<VRSize> list = new LinkedHashSet<VRSize>();
@@ -57,13 +57,18 @@ public final class VRSize implements Serializable {
 		}
 	}
 
-	public boolean is(int widthCM, int heightCM, int deepCM) {
+	public boolean is(float widthCM, float heightCM, float deepCM) {
 		return widthCM == width && heightCM == height && deep == deepCM;
 	}
 
-	private static VRSize saveConstruct(int width, int height, int deep, Set<VRSize> list) {
+	private static VRSize saveConstruct(float width, float height, float deep, Set<VRSize> list) {
 		VRSize newSize = new VRSize(width, height, deep);
 		list.add(newSize);
 		return newSize;
+	}
+
+	@Override
+	public String toString() {
+		return "VRSize[width:" + width + ", height:" + height + ", deep:" + deep + "]";
 	}
 }

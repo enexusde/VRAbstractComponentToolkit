@@ -67,5 +67,6 @@
 	<modules>
 		<module>component</module>
 		<module>frame</module>
+		<module>text</module>
 	</modules>
 </project>

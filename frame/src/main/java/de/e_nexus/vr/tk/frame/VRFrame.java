@@ -1,17 +1,16 @@
 package de.e_nexus.vr.tk.frame;
 
 import java.awt.Color;
-import java.io.File;
 
 import de.e_nexus.vr.server.VRServer;
 import de.e_nexus.vr.server.mesh.Mesh;
 import de.e_nexus.vr.server.mesh.UVNormalMeshBuilder;
 import de.e_nexus.vr.server.mesh.tex.TextureStage;
 import de.e_nexus.vr.server.util.TextureTools;
-import de.e_nexus.vr.tk.VRComponentContainer;
+import de.e_nexus.vr.tk.component.VRComponentContainer;
+import de.e_nexus.vr.tk.component.geo.VRSize;
 import de.e_nexus.vr.tk.frame.abs.DefaultFrameLayouter;
 import de.e_nexus.vr.tk.frame.layout.VRLayouter;
-import de.e_nexus.vr.tk.geo.VRSize;
 
 public class VRFrame extends VRComponentContainer {
 
@@ -159,32 +158,31 @@ public class VRFrame extends VRComponentContainer {
 		builder.addSquare(a8, a12, b12, b8);
 		builder.addSquare(c8, c12, d12, d8);
 		builder.addSquare(a12, a16, d16, d12);
-		
+
 		// outer-top
-		builder.addSquare(a1,a4,b4,b1);
-		builder.addSquare(c1,c4,d4,d1);
-		builder.addSquare(b1,b2,c2,c1);
-		builder.addSquare(b4,c4,c3,b3);
+		builder.addSquare(a1, a4, b4, b1);
+		builder.addSquare(c1, c4, d4, d1);
+		builder.addSquare(b1, b2, c2, c1);
+		builder.addSquare(b4, c4, c3, b3);
 
 		// inner-top
-		builder.addSquare(a6,b6,b7,a7);
-		builder.addSquare(b6,b5,c5,c6);
-		builder.addSquare(b8,b7,c7,c8);
-		builder.addSquare(c7,c6,d6,d7);
+		builder.addSquare(a6, b6, b7, a7);
+		builder.addSquare(b6, b5, c5, c6);
+		builder.addSquare(b8, b7, c7, c8);
+		builder.addSquare(c7, c6, d6, d7);
 
 		// inner-bottom
-		builder.addSquare(a10,a11,b11,b10);
-		builder.addSquare(b12,c12,c11,b11);
-		builder.addSquare(b10,c10,c9,b9);
-		builder.addSquare(c11,d11,d10,c10);
+		builder.addSquare(a10, a11, b11, b10);
+		builder.addSquare(b12, c12, c11, b11);
+		builder.addSquare(b10, c10, c9, b9);
+		builder.addSquare(c11, d11, d10, c10);
 
 		// outer-bottom
-		builder.addSquare(a16,a13,b13,b16);
-		builder.addSquare(b16,b15,c15,c16);
-		builder.addSquare(b14,b13,c13,c14);
-		builder.addSquare(c16,c13,d13,d16);
+		builder.addSquare(a16, a13, b13, b16);
+		builder.addSquare(b16, b15, c15, c16);
+		builder.addSquare(b14, b13, c13, c14);
+		builder.addSquare(c16, c13, d13, d16);
 
-		
 		Mesh frame = builder.buildAndReset();
 //
 		frame.setTexture(TextureStage.NORMALS, TextureTools.fromColor(Color.blue));
