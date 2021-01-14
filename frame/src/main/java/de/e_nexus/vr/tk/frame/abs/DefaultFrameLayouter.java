@@ -1,8 +1,8 @@
-package de.e_nexus.vr.tk.abs;
+package de.e_nexus.vr.tk.frame.abs;
 
-import de.e_nexus.vr.tk.VRFrame;
+import de.e_nexus.vr.tk.frame.VRFrame;
+import de.e_nexus.vr.tk.frame.layout.VRLayouter;
 import de.e_nexus.vr.tk.geo.VRSize;
-import de.e_nexus.vr.tk.layout.VRLayouter;
 
 public class DefaultFrameLayouter implements VRLayouter<VRFrame> {
 

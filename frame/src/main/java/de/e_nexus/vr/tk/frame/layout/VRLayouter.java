@@ -1,4 +1,4 @@
-package de.e_nexus.vr.tk.layout;
+package de.e_nexus.vr.tk.frame.layout;
 
 import de.e_nexus.vr.tk.VRComponentContainer;
 import de.e_nexus.vr.tk.geo.VRSize;

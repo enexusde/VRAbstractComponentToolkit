@@ -1,4 +1,4 @@
-package de.e_nexus.vr.tk.abs;
+package de.e_nexus.vr.tk.component.abs;
 
 import java.util.Objects;
 
@@ -14,15 +14,9 @@ public class MeshAppearance {
 	}
 
 	public void setMesh(Mesh<?> mesh) throws NullPointerException {
-		if (hasMesh()) {
-			server.removeMesh(this.mesh);
-		}
+		server.removeMesh(this.mesh);
 		this.mesh = Objects.requireNonNull(mesh, "Mesh must not be null");
 		server.addMesh(mesh);
-	}
-
-	public boolean hasMesh() {
-		return this.mesh != null;
 	}
 
 	protected Mesh<?> getMesh() {

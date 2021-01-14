@@ -17,7 +17,7 @@
 		<dependency>
 			<groupId>de.e-nexus</groupId>
 			<artifactId>vr.server</artifactId>
-			<version>1.0.0</version>
+			<version>1.0.1</version>
 		</dependency>
 		<dependency>
 			<groupId>org.osgi</groupId>
